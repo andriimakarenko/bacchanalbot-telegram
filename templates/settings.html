@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bot settings</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-center">
+                <h1 class="display-4">Bot settings</h1>
+            </div>
+        </div>
+        
+        <div class="container" id="mainContainer">
+            
+            <div class="row mt-4 align-items-center" id="newEntryRow">
+                
+                <div class="col-3 pl-0 pr-0">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="trigger-prepend">⚠</span>
+                        </div>
+                        <input type="text"
+                        class="form-control"
+                        placeholder="Trigger"
+                        aria-label="addphrase"
+                        aria-describedby="trigger-prepend"
+                        id="newTrigger">
+                    </div>
+                </div>
+                
+                <div class="col-1 text-center pl-0 pr-0">
+                    <span class="align-middle">></span>
+                </div>
+                
+                <div class="col pl-0 pr-0">
+                <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="trigger-prepend">t(▀̿Ĺ̯▀̿ ̿)</span>
+                        </div>
+                        <input type="text"
+                        class="form-control"
+                        placeholder="Response"
+                        aria-label="addphrase"
+                        aria-describedby="trigger-prepend"
+                        id="newResponse">
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary btn-block" id="addBtn">+</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</body>
+<script src="{{ url_for('static', filename="js/main.js")}}"></script>
+</html>
