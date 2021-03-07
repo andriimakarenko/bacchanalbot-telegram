@@ -10,6 +10,7 @@
 import requests
 import json
 import os
+import random
 from os import path
 from bacchanalbot.utilities import *
 
@@ -37,19 +38,23 @@ class Bot(object):
         # Detect words when right next to a non-letter char
         words = [clean(word) for word in words] 
         
+        suitableResponses = []
         for trigger in self.triggers:
             for word in words:
                 if word == trigger['phrase'].lower():
-                    json_data = {
-                        'chat_id': message['chat']['id'],
-                        'text': lintResponse(trigger['response']),
-                        'reply_to_message_id': message['message_id']
-                    }
+                    suitableResponses += [trigger['response']]
+        
+        if len(suitableResponses) > 0:
+            json_data = {
+                'chat_id': message['chat']['id'],
+                'text': lintResponse(random.choice(suitableResponses)),
+                'reply_to_message_id': message['message_id']
+            }
 
-                    url = self.urlbase + 'sendMessage'
-                    r = requests.post(url,
-                                      headers={'content-type': 'application/json'},
-                                      data=json.dumps(json_data).encode('utf-8'))
+            url = self.urlbase + 'sendMessage'
+            r = requests.post(url,
+                              headers={'content-type': 'application/json'},
+                              data=json.dumps(json_data).encode('utf-8'))
 
     def getTriggers(self):
         self.reloadTriggersFromShare()
